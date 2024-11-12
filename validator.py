@@ -59,11 +59,9 @@ def validate_string(language, name, value):
     error_count = 0
 
     for global_rule in global_rules:
-        if global_rule.check(value, language, name):
-            error_count += 1
+        error_count += global_rule.check(value, language, name)
 
     for language_rule in language_rules[language]:
-        if language_rule.check(value, language, name):
-            error_count += 1
+        error_count += language_rule.check(value, language, name)
 
     return error_count

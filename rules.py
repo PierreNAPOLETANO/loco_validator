@@ -42,10 +42,7 @@ class ExistenceRule(Rule):
         return input_string.lower().__contains__(self.sequence)
 
     def get_explanation(self, string_value):
-        if self.custom_explanation is None:
-            explanation = f"found forbidden sequence [{self.sequence}]"
-        else:
-            explanation = f"[{self.sequence}] detected. {self.custom_explanation}"
+        explanation = f"found forbidden sequence [{self.sequence}]" if self.custom_explanation is None else f"[{self.sequence}] detected. {self.custom_explanation}"
         return explanation
 
 
